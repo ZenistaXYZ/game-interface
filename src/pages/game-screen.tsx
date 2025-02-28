@@ -54,7 +54,7 @@ export default function GameScreen() {
                 action: {
                     label: 'View on Explorer',
                     onClick: () => {
-                        window.open(`https://scan.test.btcs.network/tx/${bCaller.data}`, '_blank');
+                        window.open(`https://scan.coredao.org/tx/${bCaller.data}`, '_blank');
                     }
                 },
                 duration: 6000,
@@ -136,7 +136,7 @@ export default function GameScreen() {
         try {
             const priceList = [100, 200, 400, 800, 1000, 1500];
             await bCaller.writeContract({
-                address: "0x5a72349Db7F6e13Fea99e58E6371A8b65A1cd301",
+                address: "0x60261002E5B78ACfD5f2F99a6f2Fc9eB9c352124",
                 abi,
                 functionName: 'buyDiamonds',
                 args: [priceList[idx]],
@@ -159,7 +159,7 @@ export default function GameScreen() {
     async function handleFreeCash() {
         try {
             await bCaller.writeContract({
-                address: "0x5a72349Db7F6e13Fea99e58E6371A8b65A1cd301",
+                address: "0x60261002E5B78ACfD5f2F99a6f2Fc9eB9c352124",
                 abi,
                 functionName: 'moneyBox'
             });
@@ -180,7 +180,7 @@ export default function GameScreen() {
     async function handleMagnetBooster() {
         try {
             await bCaller.writeContract({
-                address: "0x5a72349Db7F6e13Fea99e58E6371A8b65A1cd301",
+                address: "0x60261002E5B78ACfD5f2F99a6f2Fc9eB9c352124",
                 abi,
                 functionName: 'magnetBoost'
             });
@@ -201,7 +201,7 @@ export default function GameScreen() {
     async function handle2xCash() {
         try {
             await bCaller.writeContract({
-                address: "0x5a72349Db7F6e13Fea99e58E6371A8b65A1cd301",
+                address: "0x60261002E5B78ACfD5f2F99a6f2Fc9eB9c352124",
                 abi,
                 functionName: 'doubleCash'
             });
@@ -222,7 +222,7 @@ export default function GameScreen() {
     async function handleSpeedBooster() {
         try {
             await bCaller.writeContract({
-                address: "0x5a72349Db7F6e13Fea99e58E6371A8b65A1cd301",
+                address: "0x60261002E5B78ACfD5f2F99a6f2Fc9eB9c352124",
                 abi,
                 functionName: 'speedBoost'
             });
@@ -262,7 +262,7 @@ export default function GameScreen() {
                     action: {
                         label: 'View on Explorer',
                         onClick: () => {
-                            window.open(`https://scan.test.btcs.network/tx/${request.data?.txHash}`, '_blank');
+                            window.open(`https://scan.coredao.org/tx/${request.data?.txHash}`, '_blank');
                         }
                     },
                     duration: 6000,
