@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1044486600931",
+    "project_id": "happy-massage-game",
+    "storage_bucket": "happy-massage-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044486600931:android:988544f7d332b8c8a6edd6",
+        "android_client_info": {
+          "package_name": "com.tgh.multi.vehicle.transporter.truck.games"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk-mHmWG2SH9tWOONzHLwMWS1Pn1TLWfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-3302189174907050~3588390011"
+    }
+  ],
+  "configuration_version": "1"
+}
