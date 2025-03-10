@@ -321,6 +321,15 @@ export default function GameScreen() {
                 onUnityReady={(sendMessage) => {
                     setSendUnityMessage(() => sendMessage);
                 }}
+                unityConfig={{
+                    loaderUrl: '/unity/Build/unity.loader.js',
+                    dataUrl: '/unity/Build/unity.data.br',
+                    frameworkUrl: '/unity/Build/unity.framework.js.br',
+                    codeUrl: '/unity/Build/unity.wasm.br',
+                    companyName: 'SnarkLabs',
+                    productName: 'Zenista',
+                    productVersion: '0'
+                }}
             />
         </Stack>
     )

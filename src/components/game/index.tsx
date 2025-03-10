@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useAccount } from 'wagmi';
 import { useNavigate } from 'react-router-dom';
-import { Unity, useUnityContext } from 'react-unity-webgl';
+import { Unity, UnityConfig, useUnityContext } from 'react-unity-webgl';
 
 interface GameProps {
     onGameLoaded?: () => void;
@@ -9,30 +9,18 @@ interface GameProps {
     onGameUnloaded?: () => void;
     onMessage?: (event: string, message: string) => void;
     onUnityReady?: (sendMessage: (objectName: string, methodName: string, parameter?: any) => void) => void;
+    unityConfig: UnityConfig;
 }
 function Game(props: GameProps) {
-    const { isConnected } = useAccount();
     const navigate = useNavigate();
 
-    const { unityProvider, sendMessage, unload, loadingProgression, isLoaded } = useUnityContext({
-        loaderUrl: '/unity/Build/unity.loader.js',
-        dataUrl: '/unity/Build/unity.data.br',
-        frameworkUrl: '/unity/Build/unity.framework.js.br',
-        codeUrl: '/unity/Build/unity.wasm.br',
-        companyName: 'SnarkLabs',
-        productName: 'Zenista',
-        productVersion: '0'
-    });
-
-    useEffect(() => {
-        if (isConnected === false) {
-            navigate('/');
-        }
-    }, [isConnected, navigate]);
+    const unityRef = useRef<HTMLCanvasElement>(null);
+    const { unityProvider, sendMessage, unload, loadingProgression, isLoaded, UNSAFE__unityInstance } = useUnityContext(props.unityConfig);
 
     useEffect(() => {
         return () => {
             props.onGameUnloaded && props.onGameUnloaded();
+            unityRef.current?.removeEventListener('click', minimizeFullScreen);
             unload();
         };
     }, [unload]);
@@ -56,14 +44,20 @@ function Game(props: GameProps) {
         if (isLoaded) {
             props.onGameLoaded && props.onGameLoaded();
             props.onUnityReady && props.onUnityReady(sendMessage);
+            unityRef.current?.addEventListener('click', minimizeFullScreen);
         }
 
         props.onLoadingProgression && props.onLoadingProgression(loadingProgression);
     }, [isLoaded]);
 
+    function minimizeFullScreen() {
+        UNSAFE__unityInstance?.SetFullscreen(false);
+    }
+
     return (
         <Unity
             unityProvider={unityProvider}
+            ref={unityRef}
             style={{
                 width: '100%',
                 height: '100%',

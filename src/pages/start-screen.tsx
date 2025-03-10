@@ -2,8 +2,20 @@ import { Stack, Image } from "@chakra-ui/react";
 import backgroundImage from '../assets/start-screen.png'
 import logo from '../assets/zenista.png';
 import WalletConnectButton from "../components/button/wallet-connect-button";
+import { useEffect } from "react";
+import { useAccount } from "wagmi";
+import { useNavigate } from "react-router-dom";
 
 export default function StartScreen() {
+    const navigate = useNavigate();
+    const { address, isConnected } = useAccount();
+
+    useEffect(() => {
+        if (isConnected && address) {
+            navigate('/game');
+            console.log("Navigating to game");
+        }
+    }, [isConnected, address, navigate]);
     return (
         <Stack
             width={'100%'}

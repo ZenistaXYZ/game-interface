@@ -1,19 +1,8 @@
 import { Button } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import { useAppKit } from "@reown/appkit/react";
-import { useAccount } from "wagmi";
-import { useEffect } from "react";
 
 export default function WalletConnectButton({ text }: { text: string }) {
-    const navigate = useNavigate();
     const { open } = useAppKit();
-    const { address, isConnected } = useAccount();
-
-    useEffect(() => {
-        if (isConnected && address) {
-            navigate('/game');
-        }
-    }, [isConnected, address, navigate]);
 
     return (
         <Button
