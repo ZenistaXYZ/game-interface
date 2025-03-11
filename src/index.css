@@ -8,17 +8,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  width: 120%;
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-}
-
 @keyframes wobble {
 
   0%,
@@ -68,3 +57,28 @@ body {
     0px 0px 0 rgba(0, 0, 0, 0.7),
     1px 1px 0 rgba(0, 0, 0, 0.7);
 }
+
+/* Hero section */
+#hero .scrollbar-hide::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+/* Scrollbar */
+.os-scrollbar-handle {
+  background: rgb(217, 217, 217) !important;
+  width: 10px !important;
+  border-radius: 16px !important;
+}
+
+.os-scrollbar-handle:hover {
+  background: rgb(200, 200, 200, 0.8) !important;
+}
+
+.os-scrollbar-handle:active {
+  background: rgb(167, 167, 167) !important;
+}
+
+
+
+

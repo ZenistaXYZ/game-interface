@@ -9,11 +9,13 @@ import axios from "axios";
 import { parseEther } from 'ethers';
 import SimpleLoader from "../components/loader/simple-loader";
 import abi from '../abis/zenista-abi.json';
+import { useNavigate } from "react-router-dom";
 
 export default function GameScreen() {
     const { open } = useAppKit();
+    const navigate = useNavigate();
     const bCaller = useWriteContract();
-    const { address } = useAccount();
+    const { address, status } = useAccount();
 
     const [loading, setLoading] = useState(false);
     const [loaderText, setLoaderText] = useState("Loading...");
@@ -23,6 +25,12 @@ export default function GameScreen() {
     const [message, setMessage] = useState<{ event: string, data: any }>({ event: "NONE", data: null });
     const [event, triggerEvent] = useState<{ trigger: 'BUY_DIAMONDS' | 'FREE_CASH' | 'MAGNET_BOOSTER' | '2X_CASH' | 'SPEED_BOOSTER' | 'NONE', data: any | undefined }>({ trigger: "NONE", data: null });
     const [sendUnityMessage, setSendUnityMessage] = useState<((objectName: string, methodName: string, parameter?: any) => void) | null>(null);
+
+    useEffect(() => {
+        if (status === "disconnected") {
+            if (!address) navigate('/');
+        }
+    }, [address, status]);
 
     useEffect(() => {
         if (bCaller.isPending === true) {
@@ -326,7 +334,6 @@ export default function GameScreen() {
                     dataUrl: '/unity/Build/unity.data.br',
                     frameworkUrl: '/unity/Build/unity.framework.js.br',
                     codeUrl: '/unity/Build/unity.wasm.br',
-                    companyName: 'SnarkLabs',
                     productName: 'Zenista',
                     productVersion: '0'
                 }}

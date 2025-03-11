@@ -6,7 +6,6 @@ export const UnityConfig: UnityLoaderConfig = {
     codeUrl: 'unity/Build/build.wasm',
     dataUrl: 'unity/Build/build.data',
     streamingAssetsUrl: 'unity/StreamingAssets',
-    companyName: 'SnarkLabs',
     productName: 'Zenista',
     productVersion: '0',
 };
