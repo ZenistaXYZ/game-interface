@@ -1,18 +1,18 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Box, Flex, Text, Image, HStack, Stack } from '@chakra-ui/react';
-import featureBg from '../../assets/featureBg.png';
-import featureOneFrame from '../../assets/featureOneFrame.png';
-import featureTwoFrame from '../../assets/featureTwoFrame.png';
-import featureThreeFrame from '../../assets/featureThreeFrame.png';
-import featureFourFrame from '../../assets/featureFourFrame.png';
+import featureBg from '../../assets/feature-bg.png';
+import featureOneFrame from '../../assets/feature-one-frame.png';
+import featureTwoFrame from '../../assets/feature-two-frame.png';
+import featureThreeFrame from '../../assets/feature-three-frame.png';
+import featureFourFrame from '../../assets/feature-four-frame.png';
 import candle from '../../assets/candle.png';
 import day4 from '../../assets/day4.png';
-import diamondBox from '../../assets/diamondBox.png';
-import happyMessage from '../../assets/happyMessage.png';
-import videoFrame from '../../assets/videoFrame.png';
-import footerBg from '../../assets/footerBg.png';
-import footerLogo from '../../assets/footerLogo.png';
+import diamondBox from '../../assets/diamond-box.png';
+import happyMessage from '../../assets/happy-message.png';
+import videoFrame from '../../assets/video-frame.png';
+import footerBg from '../../assets/footer-bg.png';
+import footerLogo from '../../assets/footer-logo.png';
 import twitter from '../../assets/twitter.png';
 import medium from '../../assets/medium.png';
 

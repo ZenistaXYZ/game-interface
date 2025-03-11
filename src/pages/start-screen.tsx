@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import heroBg from '../assets/heroBg.png';
+import heroBg from '../assets/hero-bg.png';
 import Hero from '../components/sections/hero';
 import Features from '@/components/sections/features';
 
