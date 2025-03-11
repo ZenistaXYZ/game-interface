@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { useAccount } from 'wagmi';
-import { useNavigate } from 'react-router-dom';
 import { Unity, UnityConfig, useUnityContext } from 'react-unity-webgl';
 
 interface GameProps {
@@ -12,7 +10,6 @@ interface GameProps {
     unityConfig: UnityConfig;
 }
 function Game(props: GameProps) {
-    const navigate = useNavigate();
 
     const unityRef = useRef<HTMLCanvasElement>(null);
     const { unityProvider, sendMessage, unload, loadingProgression, isLoaded, UNSAFE__unityInstance } = useUnityContext(props.unityConfig);
